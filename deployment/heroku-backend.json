@@ -1,0 +1,32 @@
+{
+  "name": "resume-builder-api",
+  "description": "Professional Resume Builder API with LaTeX PDF Generation",
+  "keywords": ["resume", "pdf", "latex", "nodejs", "express"],
+  "repository": "https://github.com/yourusername/resume-builder",
+  "stack": "heroku-20",
+  "buildpacks": [
+    {
+      "url": "https://github.com/Scalingo/tex-buildpack"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "env": {
+    "NODE_ENV": {
+      "description": "Node environment",
+      "value": "production"
+    },
+    "GEMINI_API_KEY": {
+      "description": "Google Gemini API key for AI text enhancement",
+      "required": true
+    },
+    "FRONTEND_URL": {
+      "description": "Frontend URL for CORS",
+      "value": "https://your-frontend-url.vercel.app"
+    }
+  },
+  "scripts": {
+    "postdeploy": "echo 'LaTeX buildpack installed for PDF generation'"
+  }
+}

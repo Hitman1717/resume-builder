@@ -1,0 +1,22 @@
+{
+  "name": "resume-builder-frontend",
+  "version": 2,
+  "builds": [
+    {
+      "src": "vite-project/package.json",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "vite-project/$1"
+    }
+  ],
+  "env": {
+    "VITE_API_BASE_URL": "https://your-backend-url.herokuapp.com"
+  },
+  "buildCommand": "cd vite-project && npm run build",
+  "outputDirectory": "vite-project/dist",
+  "installCommand": "cd vite-project && npm install"
+}

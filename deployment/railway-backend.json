@@ -1,0 +1,28 @@
+{
+  "name": "resume-builder-api",
+  "description": "Resume Builder API with LaTeX PDF Generation",
+  "source": {
+    "type": "github",
+    "repo": "yourusername/resume-builder"
+  },
+  "build": {
+    "command": "cd server && npm install"
+  },
+  "start": {
+    "command": "cd server && npm start"
+  },
+  "environment": {
+    "NODE_ENV": "production",
+    "PORT": "$PORT",
+    "GEMINI_API_KEY": "$GEMINI_API_KEY",
+    "FRONTEND_URL": "$FRONTEND_URL"
+  },
+  "healthcheck": {
+    "path": "/health",
+    "interval": 30
+  },
+  "resources": {
+    "memory": "512Mi",
+    "cpu": "0.5"
+  }
+}
